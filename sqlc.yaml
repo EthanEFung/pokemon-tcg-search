@@ -1,0 +1,14 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "query.sql"
+    schema: "internal/migrations"
+    gen:
+      go:
+        package: "internal"
+        out: "internal"
+        sql_package: "pgx/v5"
+        overrides:
+          - db_type: "card_category"
+            go_type:
+              type: "CardCategory"
